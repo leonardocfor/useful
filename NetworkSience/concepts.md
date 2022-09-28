@@ -41,7 +41,12 @@ A network presents intrinsic properties. Such properties can be measured by part
 
 * **Distance**: The concept of distance in a graph is often related to the number of edges to traverse in order to reach a target node from a given source node.
 * **Path**: The set of edges connecting node $i$ to node $j$ is called a path.
-* **Shortest path**: The shortest path between a source node $i$ and a target node $j$ is the path having the lowest number of edges compared to all the possible paths between $i$ and $j$. 
+* **Shortest path**: The shortest path between a source node $i$ and a target node $j$ is the path having the lowest number of edges compared to all the possible paths between $i$ and $j$. In networkx:
+
+```bash
+nx.shortest_path(G,source=i,target=j)
+```
+
 * **Diameter**: The diameter of a network is the number of edges contained in the longest shortest path among all possible shortest paths.
 * **Characteristic path length**: The characteristic path length is defined as the average of all the shortest path lengths between all possible pair of nodes. If $l_i$ is the average path length between the node $i$ and all the other nodes, the characteristic path length is computed as follows:
 

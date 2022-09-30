@@ -57,3 +57,7 @@ Here, $V$ is the set of nodes in the graph and $q = |V|$ represents its order. T
 ```bash
 nx.average_shortest_path_length(G)
 ```
+
+* **Global efficiency**: Global efficiency is the average of the inverse shortest path length for all pairs of nodes. Such a metric can be seen as a measure of how efficiently information is exchanged across a network. Consider that $l_ij$ is the shortest path between a node $i$ and a node $j$. The network efficiency is defined as follows:
+
+$$\frac{1}{q(q-1)} \sum_{i∈V} \frac{1}{l_ij}$$

@@ -37,7 +37,7 @@ A network presents intrinsic properties. Such properties can be measured by part
 • **Centrality metrics**: These assess the importance of individual nodes inside a network.
 • **Resilience metrics**: These can be thought of as a measure of how much a network is able to maintain and adapt its operational performance when facing failures or other adverse conditions.
 
-##### Integration metrics
+#### Integration metrics
 
 * **Distance**: The concept of distance in a graph is often related to the number of edges to traverse in order to reach a target node from a given source node.
 * **Path**: The set of edges connecting node $i$ to node $j$ is called a path.
@@ -61,3 +61,31 @@ nx.average_shortest_path_length(G)
 * **Global efficiency**: Global efficiency is the average of the inverse shortest path length for all pairs of nodes. Such a metric can be seen as a measure of how efficiently information is exchanged across a network. Consider that $l_ij$ is the shortest path between a node $i$ and a node $j$. The network efficiency is defined as follows:
 
 $$\frac{1}{q(q-1)} \sum_{i∈V} \frac{1}{l_{ij}}$$
+
+Efficiency is at a maximum when a graph is fully connected, while it is minimal for completely disconnected graphs. Intuitively, the shorter the path, the lower the measure.  Global efficiency is computed in networkx using the following command:
+
+```bash
+nx.global_efficiency(G)
+```
+
+* **Local efficiency**: The local efficiency of a node can be computed by considering only the neighborhood of the node in the calculation, without the node itself. Average local efficiency is computed in networkx using the following command:
+
+```bash
+nx.local_efficiency(G)
+```
+
+#### Segregation metrics
+
+Integration metrics well describe the connection among nodes. However, more information about the presence of groups can be extracted by considering segregation metrics.
+
+* **Clustering coefficient**: The clustering coefficient is a measure of how much nodes cluster together. It is defined as the fraction of triangles (complete subgraph of three nodes and three edges) around a node and is equivalent to the fraction of the node's neighbors that are neighbors of each other. A global clustering coefficient is computed in networkx using the following command:
+
+```bash
+nx.average_clustering(G)
+```
+
+The local clustering coefficient (i.e. per node) is computed in networkx using the following command:
+
+```bash
+nx.clustering(G)
+```

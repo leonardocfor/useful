@@ -89,3 +89,16 @@ The local clustering coefficient (i.e. per node) is computed in networkx using t
 ```bash
 nx.clustering(G)
 ```
+
+* **Transitivity**: A common variant of the clustering coefficient is known as transitivity. This can simply be defined as the ratio between the observed number of closed triplets (complete subgraph with three nodes and two edges) and the maximum possible number of closed triplets in the graph. Transitivity can be computed using networkx, as follows:
+
+```bash
+nx.transitivity(G)
+```
+
+* **Modularity**: Quantifies the division of a network in aggregated sets of highly interconnected nodes, commonly known as modules, communities, groups, or clusters. The main idea is that networks having high modularity will show dense connections within the module and sparse connections between modules.
+
+```bash
+import networkx.algorithms.community as nx_comm
+nx_comm.modularity(G, communities=[{1,2,3}, {4,5,6,7}])
+```

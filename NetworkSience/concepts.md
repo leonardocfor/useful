@@ -102,3 +102,33 @@ nx.transitivity(G)
 import networkx.algorithms.community as nx_comm
 nx_comm.modularity(G, communities=[{1,2,3}, {4,5,6,7}])
 ```
+
+#### Centrality metrics
+
+Centrality metrics allow us to measure the importance of a node inside the network
+
+* **Degree centrality**: Directly connected with the *degree* of a node and measures the number of *incident* edges on a certain node $i$. In a directed grap, each node will have **in-degree centrality** and **out-degree centrality**. 
+
+```bash
+nx.degree_centrality(G)
+```
+
+* **Closeness centrality**: Measures how well connected (close) is a node to other nodes. Computed as the average distance of a node to all other nodes in the network. If $l_{ij}$ is the shortest path between node $i$ and node $j$, the closeness centrality is defined as follows:
+
+$$\frac{1}{\sum_{i ∈ V, i!= j} l_{ij} }$$
+
+```bash
+nx.closeness_centrality(G)
+```
+
+* **Betweenness centrality**: Measures how much a node acts as a *bridge* between other nodes. Even if poorly connected, a node can be strategically connected, helping to keed the whole network connected.
+
+If $L_{wj}$ is the total number of shortest paths between node $w$ and node $j$ and $L_{wj}(i)$ is the total number of shortest paths between node $w$ and node $j$ passing through node $i$, then the betweenness centrality is defined as follows:
+
+$$\sum_{w != i != j}  \frac{L_{wj}(i)}{L_{wj}}$$
+
+If we observe the formula, we can notice that the higher the number of shortest paths passing through node $i$, the higher the value of the betweenness centrality.Betweenness centrality is computed in networkx by using the following command:
+
+```bash
+nx.betweenness_centrality(G)
+```

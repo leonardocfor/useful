@@ -2,7 +2,7 @@
 
 Based on book **Graph Machine Learning_ Take graph data to the next level by applying machine learning techniques and algorithms-Packt Publishing (2021)** by *Claudio Stamile, Aldo Marzullo and Enrico Deusebio* 
 
-#### Concepts
+#### Definitions
 
 * **Graph**: A graph is a mathematical model that is used for describing relations between entities.
 * **Order**: The order of a graph is the number of its vertices $|V|$. The size of a graph is the number of its edges $|E|$.
@@ -11,6 +11,7 @@ Based on book **Graph Machine Learning_ Take graph data to the next level by app
 * **Indegree and outdegree**: For a vertex v, the number of head ends adjacent to v is called the **indegree**, indicated by $deg^-(v)$ of v, while the number of tail ends adjacent to v is its **outdegree**, indicated by $deg^+(v)$ of v.
 * **Adjacency matrix**: The adjacency matrix M of a graph $G=(V,E)$ is a square matrix $(|V| × |V|)$ matrix such that its element is 1 (graph, digraph), X (sum of 1s, one per each edge in a multigraph), weight (weighted graph) when there is an edge from node i to node j, and 0 when there is no edge.
 * **Edge list**: The edge list L of a graph $G=(V,E)$ is a list of size |E| matrix such that its element $L_i$ is a couple representing the tail and the end node of the edge $i$
+* **Clique**: A clique, $C$, in an undirected graph is defined a subset of its ertices, $C ⊆ V$, such that every two distinct vertices in the subset are adjacent. This is equivalent to the condition that the induced subgraph of $G$ induced by $C$ is a fully connected graph. Finding cliques in graphs is a *non-deterministic polynomial-time complete (NP-complete)* problem
 
 #### Types of graphs
 
@@ -28,6 +29,20 @@ Considerations
 • If E is a multi-set, we will call it a *undirected weighted multigraph*.
 • If E is a multi-set of ordered couples, it is an *weighted multigraph (directed weighted multigraph)*.
 
+#### Examples of graphs
+
+* **Lollipop graph**: formed by a clique of size $n$ and a branch of m nodes, as shown in the following code snippet:
+
+```bash
+lollipop = nx.lollipop_graph(m=7, n=3)
+```
+
+* **Barbell graph**: formed by two cliques of size $m1$ and $m2$ joined by a branch of nodes. The code to generate this is shown in the following snippet:
+
+```bash
+barbell = nx.barbell_graph(m1=7, m2=4)
+```
+
 #### Graph properties
 
 A network presents intrinsic properties. Such properties can be measured by particular metrics, and each measure may characterize one or several local and global aspects of the graph. Those metrics are defined as global when expressing a measure of an overall network. On the other hand, local metrics measure values of individual network elements (nodes or edges). In weighted graphs, each property may or may not account for the edge weights, leading to weighted and unweighted metrics.
@@ -36,6 +51,8 @@ A network presents intrinsic properties. Such properties can be measured by part
 • **Segregation metrics**: These quantify the presence of groups of interconnected nodes, known as communities or modules, within a network.
 • **Centrality metrics**: These assess the importance of individual nodes inside a network.
 • **Resilience metrics**: These can be thought of as a measure of how much a network is able to maintain and adapt its operational performance when facing failures or other adverse conditions.
+
+More metrics can be found in [NetworkX documentation](https://networkx.org/documentation/stable/reference/algorithms/)
 
 #### Integration metrics
 
@@ -132,3 +149,13 @@ If we observe the formula, we can notice that the higher the number of shortest 
 ```bash
 nx.betweenness_centrality(G)
 ```
+
+#### Resilience metrics
+
+* **Assortativity coefficient**: Assortativity is used to quantify the tendency of nodes being connected to similar nodes. There are several ways to measure such correlations. One of the most commonly used methods is the *Pearson correlation coefficient* between the degrees of directly connected nodes (nodes on two opposite ends of a link). The coefficient assumes positive values when there is a correlation between nodes of a similar degree, while it assumes negative values when there is a correlation between nodes of a different degree. Assortativity using the Pearson correlation coefficient is computed in networkx by using the following command:
+
+```bash
+nx.degree_pearson_correlation_coefficient(G)
+```
+
+Social networks are mostly assortative. However, the so-called influencers (famous singers, football players, fashion bloggers) tend to be followed (incoming edges) by several standard users, while tending to be connected with each other and showing a disassortative behavior.

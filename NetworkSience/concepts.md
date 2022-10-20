@@ -74,6 +74,8 @@ Example:
 https://networkx.org/documentation/stable/reference/generated/networkx.generators.random_graphs.extended_barabasi_albert_graph.html
 When p = q = 0, the model behaves just like the Barabási-Albert model
 """
+import numpy as np
+import networkx as nx
 from collections import Counter
 ba_model = nx.extended_barabasi_albert_graph(n=100000,m=1,p=0,q=0)
 degree = dict(nx.degree(ba_model)).values()

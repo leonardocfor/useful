@@ -70,7 +70,12 @@ Example:
 
 
 ```python
-ba_model = nx.extended_barabasi_albert_graph(n,m=1,p=0,q=0)
+"""
+https://networkx.org/documentation/stable/reference/generated/networkx.generators.random_graphs.extended_barabasi_albert_graph.html
+When p = q = 0, the model behaves just like the Barabási-Albert model
+"""
+from collections import Counter
+ba_model = nx.extended_barabasi_albert_graph(n=100000,m=1,p=0,q=0)
 degree = dict(nx.degree(ba_model)).values()
 bins = np.round(np.logspace(np.log10(min(degree)),np.log10(max(degree)), 10))
 cnt = Counter(np.digitize(np.array(list(degree)), bins))
@@ -78,6 +83,10 @@ cnt = Counter(np.digitize(np.array(list(degree)), bins))
 
 </ul>
 
+#### Network data repositories:
+
+- [Network Data Repository](http://networkrepository.com/): Around 30 domains e.g. biology, economics, citations, social network data, industrial applications (energy, road), and many others. Data is available under format [Matrix Market
+Exchange Format (MTX) file format](http://math.nist.gov/MatrixMarket/formats.html#MMformat.)
 
 
 #### Graph properties
@@ -89,7 +98,7 @@ A network presents intrinsic properties. Such properties can be measured by part
 • **Centrality metrics**: These assess the importance of individual nodes inside a network.
 • **Resilience metrics**: These can be thought of as a measure of how much a network is able to maintain and adapt its operational performance when facing failures or other adverse conditions.
 
-<ul>More metrics can be found in https://networkx.org/documentation/stable/reference/algorithms/ (NetworkX documentation)</ul>
+<ul>More metrics can be found in https://networkx.org/documentation/stable/reference/algorithms/</ul>
 
 #### Integration metrics
 

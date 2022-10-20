@@ -89,7 +89,7 @@ A network presents intrinsic properties. Such properties can be measured by part
 • **Centrality metrics**: These assess the importance of individual nodes inside a network.
 • **Resilience metrics**: These can be thought of as a measure of how much a network is able to maintain and adapt its operational performance when facing failures or other adverse conditions.
 
-<ul>More metrics can be found in <a src="https://networkx.org/documentation/stable/reference/algorithms/" target="_blank">NetworkX documentation</a></ul>
+<ul>More metrics can be found in <a src="https://networkx.org/documentation/stable/reference/algorithms/" target="_blank">NetworkX documentation</a> [NetworkX documentation](https://networkx.org/documentation/stable/reference/algorithms/)</ul>
 
 #### Integration metrics
 

@@ -89,6 +89,18 @@ cnt = Counter(np.digitize(np.array(list(degree)), bins))
 
 - [Network Data Repository](http://networkrepository.com/): Around 30 domains e.g. biology, economics, citations, social network data, industrial applications (energy, road), and many others. Data is available under format [Matrix Market
 Exchange Format (MTX) file format](http://math.nist.gov/MatrixMarket/formats.html#MMformat.)
+- [Stanford Network Analysis Platform (SNAP)](https://snap.stanford.edu/index.html): Data is generally provided in a text file format containing a list of edges.
+- [Open Graph Benchmark](https://ogb.stanford.edu/): Graphs ready for ML pipelines - realistic graphs
+
+#### Tools and frameworks for large graph processing
+
+Alternatives to NetworkX when dealing with large graphs
+
+- [SNAP](http://snap.stanford.edu/), Graph engine developed at Stanford and is written in C++ with available bindings in Python.
+- [igraph](https://igraph.org/) C library and features bindings in Python, R, and Mathematica.
+- [graph-tool](https://graph-tool.skewed.de/), despite being a Python module, has core algorithms and data-structures written in C++ and uses OpenMP parallelization to scale on multi-core architectures.
+- [NetworKit](https://networkit.github.io/) is also written in C++ with OpenMP boost for parallelization for its core functionalities, integrated in a Python module.
+- [LightGraphs](https://juliagraphs.org/LightGraphs.jl/latest/) is a library written in Julia that aims to mirroring networkx functionalities in a more performant and robust library.
 
 
 #### Graph properties

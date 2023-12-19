@@ -9,10 +9,6 @@ workspace <WORKSPACE> # Set the workspace
 
 Setting options
 
-# Metasploit learning
-
-Main command
-
 ```bash
 set RHOSTS <CIDR>
 # hosts -R # If there're hosts in the database

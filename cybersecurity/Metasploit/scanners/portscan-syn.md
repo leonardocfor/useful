@@ -15,6 +15,9 @@ set RHOSTS <CIDR>
 set PORTS 21,22,139,445,443,80
 # set PORTS 21-445 # Intervals can be set as well
 set THREADS <X>
+# Advance options below
+set VERBOSE true # See output
+set GATEWAY_PROBE_HOST <GATEWAY>
 ```
 
 
